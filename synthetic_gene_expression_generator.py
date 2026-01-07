@@ -16,6 +16,9 @@ Clusters = st.slider("Clusters: ", 0, 10, 1)
 gene_required = st.slider("Number of genes in each cluster: ", 0, 1000, 10)
 Length = st.slider("Timepoints: ", 0, 1000, 10)
 
+if 'zip_data' not in st.session_state:
+    st.session_state['zip_data'] = None
+    
 if st.button("Generate"):
     zip_buffer= io.BytesIO()
     with zipfile.ZipFile(zip_buffer, "w") as zf:
